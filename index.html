@@ -26,11 +26,8 @@
         }
     </style>
 </head>
-<body>  
-    <h1> 강원지방병무청 병역명문가 자가진단 시스템</h1>
-    <p>병역명문가 신청을 위한 자가진단 시스템입니다.</p>
+<body>
 
-   <h3>1대 이행자의 병역사항을 입력하세요</h3>
 <h2>항목 입력</h2>
 
 <!-- 1번 항목 -->
@@ -45,7 +42,7 @@
 <div class="section">
     <div class="row">
         <label>2번 항목 개수</label>
-        <input type="number" id="count2" min="1" oninput="createItems('item2', this.value)">
+        <input type="number" min="1" oninput="createItems(this.value)">
     </div>
     <div id="item2"></div>
 </div>
@@ -53,8 +50,7 @@
 <!-- 3번 항목 -->
 <div class="section">
     <div class="row">
-        <label>3번 항목 개수</label>
-        <input type="number" id="count3" min="1" oninput="createItems('item3', this.value)">
+        <label>3번 항목</label>
     </div>
     <div id="item3"></div>
 </div>
@@ -64,27 +60,45 @@
 <div id="result"></div>
 
 <script>
-    function createItems(containerId, count) {
-        const container = document.getElementById(containerId);
-        container.innerHTML = "";
+    function createItems(count) {
+        const item2 = document.getElementById("item2");
+        const item3 = document.getElementById("item3");
+
+        item2.innerHTML = "";
+        item3.innerHTML = "";
 
         for (let i = 1; i <= count; i++) {
-            const row = document.createElement("div");
-            row.className = "row";
+            // 2번 항목
+            const row2 = document.createElement("div");
+            row2.className = "row";
 
-            const label = document.createElement("label");
-            label.textContent = containerId === "item2"
-                ? `2-${i} 항목`
-                : `3-${i} 항목`;
+            const label2 = document.createElement("label");
+            label2.textContent = `2-${i} 항목`;
 
-            const input = document.createElement("input");
-            input.type = "text";
-            input.className = "judge";
-            input.placeholder = "가능 / 불가능";
+            const input2 = document.createElement("input");
+            input2.type = "text";
+            input2.className = "judge";
+            input2.placeholder = "가능 / 불가능";
 
-            row.appendChild(label);
-            row.appendChild(input);
-            container.appendChild(row);
+            row2.appendChild(label2);
+            row2.appendChild(input2);
+            item2.appendChild(row2);
+
+            // 3번 항목 (2번에 종속)
+            const row3 = document.createElement("div");
+            row3.className = "row";
+
+            const label3 = document.createElement("label");
+            label3.textContent = `3-${i} 항목`;
+
+            const input3 = document.createElement("input");
+            input3.type = "text";
+            input3.className = "judge";
+            input3.placeholder = "가능 / 불가능";
+
+            row3.appendChild(label3);
+            row3.appendChild(input3);
+            item3.appendChild(row3);
         }
     }
 
@@ -97,7 +111,6 @@
 
         inputs.forEach(input => {
             const value = input.value.trim();
-
             if (value !== "가능") allPossible = false;
             if (value !== "불가능") allImpossible = false;
         });
