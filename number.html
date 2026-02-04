@@ -413,6 +413,7 @@
         function generateGen2Fields() {
             const countInput = document.getElementById('gen2Count');
             const count = parseInt(countInput.value);
+            document.getElementById('gen2CountLabel').textContent = `(2대 이행자 ${count}명의 자녀수 전체)`;
             const tbody = document.getElementById('tbodyGen2');
             tbody.innerHTML = ''; 
 
