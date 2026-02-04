@@ -27,35 +27,53 @@
 
     <div id="textboxContainer"></div>
 
-    <script>
-        function createTextBoxes() {
-            const count = document.getElementById("count2").value;
-            const container = document.getElementById("textboxContainer");
+<script>
+    function createTextBoxes() {
+        const count = document.getElementById("count").value;
+        const container = document.getElementById("textboxContainer");
 
-            // 기존 텍스트박스 초기화
-            container.innerHTML = "";
+        // 기존 텍스트박스 초기화
+        container.innerHTML = "";
 
         for (let i = 1; i <= count; i++) {
-
-            // wrapper div
-            const wrapper = document.createElement("div");
-            wrapper.style.margin = "5px 0";
-
-            // label (캡션)
-            const label = document.createElement("label");
-            label.textContent = "항목 " + i + " : ";
-            label.style.marginRight = "8px";
-
-            // input
             const input = document.createElement("input");
             input.type = "text";
-            input.placeholder = "가능 / 불가능";
+            input.placeholder = "텍스트박스 " + i;
+            input.style.display = "block";
+            input.style.margin = "5px 0";
+            container.appendChild(input);
+        }
+    }
 
-            wrapper.appendChild(label);
-            wrapper.appendChild(input);
-            container.appendChild(wrapper)
+    function checkResult() {
+        const inputs = document.querySelectorAll("#textboxContainer input");
+        const resultDiv = document.getElementById("result");
+
+        let allPossible = true;
+        let allImpossible = true;
+
+        inputs.forEach(input => {
+            const value = input.value.trim();
+
+            if (value !== "가능") {
+                allPossible = false;
+            }
+            if (value !== "불가능") {
+                allImpossible = false;
+            }
+        });
+
+        if (inputs.length === 0) {
+            resultDiv.textContent = "텍스트박스를 먼저 생성하세요";
+        } else if (allPossible) {
+            resultDiv.textContent = "결과 : O";
+        } else if (allImpossible) {
+            resultDiv.textContent = "결과 : X";
+        } else {
+            resultDiv.textContent = "결과 : 판단 불가";
         }
-        }
-    </script>
+    }
+</script>
+
   </body>
 </html>
