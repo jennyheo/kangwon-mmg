@@ -29,13 +29,13 @@
 
     <script>
         function createTextBoxes() {
-            const count = document.getElementById("count").value;
+            const count = document.getElementById("count2").value;
             const container = document.getElementById("textboxContainer");
 
             // 기존 텍스트박스 초기화
             container.innerHTML = "";
 
-        for (let i = 1; i <= count; i++) {
+        for (let i = 1; i <= count2; i++) {
 
             // wrapper div
             const wrapper = document.createElement("div");
@@ -54,6 +54,7 @@
             wrapper.appendChild(label);
             wrapper.appendChild(input);
             container.appendChild(wrapper)
+        }
         }
     </script>
   </body>
