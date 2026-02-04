@@ -154,7 +154,7 @@
             
             <!-- 3대 인원 입력 -->
             <div class="p-4 bg-gray-50 rounded-lg border">
-                <label class="block font-bold text-gray-800 mb-2" for="gen3Count">3대 이행자는 총 몇 분인가요?</label>
+                <label class="block font-bold text-gray-800 mb-2" for="gen3Count">3대 이행자는 총 몇 분인가요?<span id="gen3CountLabel" class="text-blue-600 ml-1"></span></label>
                 <div class="flex items-center space-x-3">
                     <input type="number" id="gen3Count" class="w-20 p-2 border border-gray-300 rounded-lg text-center" min="1" placeholder="1" value="1">
                     <span class="text-gray-700">명</span>
@@ -413,7 +413,7 @@
         function generateGen2Fields() {
             const countInput = document.getElementById('gen2Count');
             const count = parseInt(countInput.value);
-            document.getElementById('gen2CountLabel').textContent = `(2대 이행자 ${count}명의 자녀수 전체)`;
+            document.getElementById('gen3CountLabel').textContent = `(총 ${count}명)`;
             const tbody = document.getElementById('tbodyGen2');
             tbody.innerHTML = ''; 
 
