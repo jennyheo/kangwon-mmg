@@ -4,9 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="with=device-width, inital-scale=1.0">
     <title>강원지방병무청 병역명문가 자가진단 시스템</title>
+    <style>
+        input[type="text"] {
+            display: block;
+            margin: 5px 0;
+            padding: 5px;
+            width: 200px;
+        }
+    </style>
   </head>
   <body>
     <h1> 강원지방병무청 병역명문가 자가진단 시스템</h1>
     <p>병역명문가 신청을 위한 자가진단 시스템입니다.</p>
+
+   <h3>개수 입력</h3>
+    <input type="number" id="count" min="1" placeholder="숫자 입력">
+    <button onclick="createTextBoxes()">생성</button>
+
+    <div id="textboxContainer"></div>
+
+    <script>
+        function createTextBoxes() {
+            const count = document.getElementById("count").value;
+            const container = document.getElementById("textboxContainer");
+
+            // 기존 텍스트박스 초기화
+            container.innerHTML = "";
+
+            for (let i = 1; i <= count; i++) {
+                const input = document.createElement("input");
+                input.type = "text";
+                input.placeholder = "텍스트박스 " + i;
+                container.appendChild(input);
+            }
+        }
+    </script>
   </body>
 </html>
