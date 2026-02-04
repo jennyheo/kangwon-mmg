@@ -17,7 +17,8 @@
     <h1> 강원지방병무청 병역명문가 자가진단 시스템</h1>
     <p>병역명문가 신청을 위한 자가진단 시스템입니다.</p>
 
-   <h3>입력사항 : 1대</h3>
+   <h3>1대 이행자의 병역사항을 입력하세요</h3>
+    
     
     
    <h3>입력사항 : 2대</h3>
@@ -35,6 +36,9 @@
             container.innerHTML = "";
 
             for (let i = 1; i <= count; i++) {
+                const label = document.createElement("label");
+                label.textContent = "항목 " + i + " : ";
+                label.style.marginRight = "8px";
                 const input = document.createElement("input");
                 input.type = "text";
                 input.placeholder = "텍스트박스 " + i;
