@@ -35,15 +35,25 @@
             // 기존 텍스트박스 초기화
             container.innerHTML = "";
 
-            for (let i = 1; i <= count; i++) {
-                const label = document.createElement("label");
-                label.textContent = "항목 " + i + " : ";
-                label.style.marginRight = "8px";
-                const input = document.createElement("input");
-                input.type = "text";
-                input.placeholder = "텍스트박스 " + i;
-                container.appendChild(input);
-            }
+        for (let i = 1; i <= count; i++) {
+
+            // wrapper div
+            const wrapper = document.createElement("div");
+            wrapper.style.margin = "5px 0";
+
+            // label (캡션)
+            const label = document.createElement("label");
+            label.textContent = "항목 " + i + " : ";
+            label.style.marginRight = "8px";
+
+            // input
+            const input = document.createElement("input");
+            input.type = "text";
+            input.placeholder = "가능 / 불가능";
+
+            wrapper.appendChild(label);
+            wrapper.appendChild(input);
+            container.appendChild(wrapper)
         }
     </script>
   </body>
