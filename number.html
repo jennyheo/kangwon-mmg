@@ -107,6 +107,16 @@
                 <span class="block font-bold text-gray-800 mb-2">1대 이행자 : 1명</span>
             </div>
             
+            <!-- 문항 1: 1대 복무 여부 -->
+            <div class="space-y-3">
+                <label class="block font-bold text-gray-800">문항 1. 1대 이행자께서 현역 등으로 복무를 마치셨습니까?</label>
+                <div class="flex flex-col space-y-1 text-sm">
+                    <label class="inline-flex items-center"><input type="radio" name="q1" value="yes" class="form-radio text-blue-600 h-4 w-4"> <span class="ml-2">예 (6·25전쟁 참전, 순국선열, 애국지사 포함)</span></label>
+                    <label class="inline-flex items-center"><input type="radio" name="q1" value="no" class="form-radio text-blue-600 h-4 w-4"> <span class="ml-2">아니오 (질병·가사사정 등 복무단축된 경우 포함)</span></label>
+                    <label class="inline-flex items-center"><input type="radio" name="q1" value="unknown" class="form-radio text-blue-600 h-4 w-4"> <span class="ml-2">잘 모르겠음</span></label>
+                </div>
+            </div>
+            
             <!-- 2대 인원 입력 -->
             <div class="p-4 bg-gray-50 rounded-lg border">
                 <label class="block font-bold text-gray-800 mb-2" for="gen2Count">2대 이행자는 총 몇 분인가요?</label>
@@ -122,33 +132,8 @@
                 </div>
             </div>
 
-            <!-- 3대 인원 입력 -->
-            <div class="p-4 bg-gray-50 rounded-lg border">
-                <label class="block font-bold text-gray-800 mb-2" for="gen3Count">3대 이행자는 총 몇 분인가요?</label>
-                <div class="flex items-center space-x-3">
-                    <input type="number" id="gen3Count" class="w-20 p-2 border border-gray-300 rounded-lg text-center" min="1" placeholder="1" value="1">
-                    <span class="text-gray-700">명</span>
-                    <button class="flex-shrink-0 px-4 py-2 text-sm bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition" onclick="generateGen3Fields()">
-                        입력란 생성
-                    </button>
-                </div>
-                <div class="prompt-message text-center text-red-700 p-3 bg-yellow-100 border border-dashed border-yellow-400 rounded-lg text-sm mt-3">
-                    <span class="font-bold">[필수]</span> 인원 수를 입력 후 반드시 <span class="font-bold text-blue-700">'입력란 생성'</span> 버튼을 눌러주세요.
-                </div>
-            </div>
 
-            <div class="h-px bg-gray-200 my-6"></div>
-
-            <!-- 문항 1: 1대 조부 복무 여부 -->
-            <div class="space-y-3">
-                <label class="block font-bold text-gray-800">문항 1. 1대 이행자께서 현역 등으로 복무를 마치셨습니까?</label>
-                <div class="flex flex-col space-y-1 text-sm">
-                    <label class="inline-flex items-center"><input type="radio" name="q1" value="yes" class="form-radio text-blue-600 h-4 w-4"> <span class="ml-2">예 (6·25전쟁 참전, 순국선열, 애국지사 포함)</span></label>
-                    <label class="inline-flex items-center"><input type="radio" name="q1" value="no" class="form-radio text-blue-600 h-4 w-4"> <span class="ml-2">아니오 (질병·가사사정 등 복무단축된 경우 포함)</span></label>
-                    <label class="inline-flex items-center"><input type="radio" name="q1" value="unknown" class="form-radio text-blue-600 h-4 w-4"> <span class="ml-2">잘 모르겠음</span></label>
-                </div>
-            </div>
-
+            
             <!-- 문항 2: 2대 병역이행 사항 (동적 테이블) -->
             <div class="space-y-3">
                 <label class="block font-bold text-gray-800">문항 2. 2대 이행자의 병역이행 사항</label>
@@ -166,6 +151,26 @@
                     </table>
                 </div>
             </div>
+            
+            <!-- 3대 인원 입력 -->
+            <div class="p-4 bg-gray-50 rounded-lg border">
+                <label class="block font-bold text-gray-800 mb-2" for="gen3Count">3대 이행자는 총 몇 분인가요?</label>
+                <div class="flex items-center space-x-3">
+                    <input type="number" id="gen3Count" class="w-20 p-2 border border-gray-300 rounded-lg text-center" min="1" placeholder="1" value="1">
+                    <span class="text-gray-700">명</span>
+                    <button class="flex-shrink-0 px-4 py-2 text-sm bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition" onclick="generateGen3Fields()">
+                        입력란 생성
+                    </button>
+                </div>
+                <div class="prompt-message text-center text-red-700 p-3 bg-yellow-100 border border-dashed border-yellow-400 rounded-lg text-sm mt-3">
+                    <span class="font-bold">[필수]</span> 인원 수를 입력 후 반드시 <span class="font-bold text-blue-700">'입력란 생성'</span> 버튼을 눌러주세요.
+                </div>
+            </div>
+
+            <div class="h-px bg-gray-200 my-6"></div>
+
+
+
             
             <!-- 문항 3: 3대 병역이행 사항 (동적 테이블) -->
             <div class="space-y-3">
