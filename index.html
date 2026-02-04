@@ -27,14 +27,17 @@
     </style>
 </head>
 <body>
-
 <h2>항목 입력</h2>
 
 <!-- 1번 항목 -->
 <div class="section">
     <div class="row">
         <label>1번 항목</label>
-        <input type="text" class="judge" placeholder="가능 / 불가능">
+        <select class="judge">
+            <option value="">선택</option>
+            <option value="가능">가능</option>
+            <option value="불가능">불가능</option>
+        </select>
     </div>
 </div>
 
@@ -42,9 +45,9 @@
 <div class="section">
     <div class="row">
         <label>2번 항목 개수</label>
-        <input type="number" min="1" oninput="createItems(this.value)">
+        <input type="number" min="1" oninput="createSecondItems(this.value)">
     </div>
-    <div id="item2"></div>
+    <div id="secondItems"></div>
 </div>
 
 <!-- 3번 항목 -->
@@ -52,7 +55,7 @@
     <div class="row">
         <label>3번 항목</label>
     </div>
-    <div id="item3"></div>
+    <div id="thirdItems"></div>
 </div>
 
 <button onclick="checkResult()">전체 결과 판단</button>
@@ -60,71 +63,95 @@
 <div id="result"></div>
 
 <script>
-    function createItems(count) {
-        const item2 = document.getElementById("item2");
-        const item3 = document.getElementById("item3");
+function createSecondItems(count) {
+    const second = document.getElementById("secondItems");
+    const third = document.getElementById("thirdItems");
 
-        item2.innerHTML = "";
-        item3.innerHTML = "";
+    second.innerHTML = "";
+    third.innerHTML = "";
+
+    for (let i = 1; i <= count; i++) {
+        const row = document.createElement("div");
+        row.className = "row";
+
+        const label = document.createElement("label");
+        label.textContent = `2-${i} 항목`;
+
+        const numInput = document.createElement("input");
+        numInput.type = "number";
+        numInput.min = "1";
+        numInput.oninput = updateThirdItems;
+
+        const select = document.createElement("select");
+        select.className = "judge";
+        select.innerHTML = `
+            <option value="">선택</option>
+            <option value="가능">가능</option>
+            <option value="불가능">불가능</option>
+        `;
+
+        row.appendChild(label);
+        row.appendChild(numInput);
+        row.appendChild(select);
+        second.appendChild(row);
+    }
+}
+
+function updateThirdItems() {
+    const third = document.getElementById("thirdItems");
+    third.innerHTML = "";
+
+    const numberInputs = document.querySelectorAll("#secondItems input[type='number']");
+
+    numberInputs.forEach((input, idx) => {
+        const count = Number(input.value);
+        if (!count) return;
 
         for (let i = 1; i <= count; i++) {
-            // 2번 항목
-            const row2 = document.createElement("div");
-            row2.className = "row";
+            const row = document.createElement("div");
+            row.className = "row";
 
-            const label2 = document.createElement("label");
-            label2.textContent = `2-${i} 항목`;
+            const label = document.createElement("label");
+            label.textContent = `3-${idx + 1}-${i} 항목`;
 
-            const input2 = document.createElement("input");
-            input2.type = "text";
-            input2.className = "judge";
-            input2.placeholder = "가능 / 불가능";
+            const select = document.createElement("select");
+            select.className = "judge";
+            select.innerHTML = `
+                <option value="">선택</option>
+                <option value="가능">가능</option>
+                <option value="불가능">불가능</option>
+            `;
 
-            row2.appendChild(label2);
-            row2.appendChild(input2);
-            item2.appendChild(row2);
-
-            // 3번 항목 (2번에 종속)
-            const row3 = document.createElement("div");
-            row3.className = "row";
-
-            const label3 = document.createElement("label");
-            label3.textContent = `3-${i} 항목`;
-
-            const input3 = document.createElement("input");
-            input3.type = "text";
-            input3.className = "judge";
-            input3.placeholder = "가능 / 불가능";
-
-            row3.appendChild(label3);
-            row3.appendChild(input3);
-            item3.appendChild(row3);
+            row.appendChild(label);
+            row.appendChild(select);
+            third.appendChild(row);
         }
+    });
+}
+
+function checkResult() {
+    const selects = document.querySelectorAll(".judge");
+    const result = document.getElementById("result");
+
+    let allPossible = true;
+    let allImpossible = true;
+
+    selects.forEach(sel => {
+        const v = sel.value;
+        if (v !== "가능") allPossible = false;
+        if (v !== "불가능") allImpossible = false;
+    });
+
+    if (selects.length === 0) {
+        result.textContent = "입력 항목이 없습니다.";
+    } else if (allPossible) {
+        result.textContent = "결과 : O";
+    } else if (allImpossible) {
+        result.textContent = "결과 : X";
+    } else {
+        result.textContent = "결과 : 판단 불가";
     }
-
-    function checkResult() {
-        const inputs = document.querySelectorAll(".judge");
-        const resultDiv = document.getElementById("result");
-
-        let allPossible = true;
-        let allImpossible = true;
-
-        inputs.forEach(input => {
-            const value = input.value.trim();
-            if (value !== "가능") allPossible = false;
-            if (value !== "불가능") allImpossible = false;
-        });
-
-        if (inputs.length === 0) {
-            resultDiv.textContent = "입력된 항목이 없습니다.";
-        } else if (allPossible) {
-            resultDiv.textContent = "결과 : O";
-        } else if (allImpossible) {
-            resultDiv.textContent = "결과 : X";
-        } else {
-            resultDiv.textContent = "결과 : 판단 불가";
-        }
-    }
+}
 </script>
 
 </body>
