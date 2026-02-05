@@ -155,36 +155,33 @@
             <div class="h-px bg-gray-200 my-6"></div>
             
             <!-- 3대 인원 입력 -->
-            <div class="p-4 bg-yellow-50 rounded-lg border relative">
-                <label class="block font-bold text-gray-800 mb-2" for="gen3Count">❔ 3대(손자)는 총 몇 분인가요?</label>
-                <div class="relative">
-                <button onclick="toggleTooltip('gen3Tooltip')" type="button" class="w-6 h-6 bg-gray-400 text-white text-xs font-bold rounded-full flex items-center justify-center hover:bg-gray-600 transition shadow-sm">(💡안내) </button>
-<!--                
-        <div class="relative flex items-center">
-            <button onclick="toggleTooltip('gen3Tooltip')">💡</button>
--->
-            <div id="gen3Tooltip" class="hidden absolute bottom-full mb-2 left-1/2 -translate-x-1/2 w-64 p-3 bg-white border border-blue-200 text-gray-700 text-xs rounded-lg shadow-xl z-50 animate-fadeIn">
-        <p class="font-bold text-blue-600 mb-1">💡 3대 범위 안내</p>
+<div class="p-4 bg-yellow-50 rounded-lg border relative"> <div class="absolute top-3 right-3"> <div class="relative">
+            <button onclick="toggleTooltip('gen3Tooltip')" 
+                    type="button" class="text-xs">
+                작성안내
+            </button>
+
+            <div id="gen3Tooltip" 
+                 class="hidden absolute bottom-full mb-2 right-0 w-80 p-3 bg-white border border-blue-200 text-gray-700 text-s rounded-lg shadow-xl z-50 animate-fadeIn">
+                <p class="font-bold text-blue-700 mb-1 underline decoration-blue-200">💡 3대 범위 안내</p>
                 <ul class="list-disc list-inside space-y-1 text-gray-600">
-                    <li>1대 <b>할아버지</b>의 모든 친손자</li>
-                    <li>딸의 자녀(외손자)는 제외</li>
+                    <li><b>할아버지</b>의 모든 친손자</li>
+                    <li>고모/이모의 자녀(외손자)는 제외</li>
                 </ul>
-                <img src="./mmg2.png" alt="명문가3대가계도">
-<div class="absolute top-full right-2 border-8 border-transparent border-t-white"></div>
-<div class="absolute top-full right-2 border-[9px] border-transparent border-t-blue-100 -z-10"></div>
-        <button onclick="toggleTooltip('gen3Tooltip')" class="mt-2 text-xs text-red-500 underline">닫기</button>
             </div>
         </div>
+    </div>
 
-
-                <div class="flex items-center space-x-3">
-                    <input type="number" id="gen3Count" class="w-20 p-2 border border-gray-300 rounded-lg text-center" min="1" placeholder="1" value="1">
-                    <span class="text-gray-700">명</span>
-                    <button class="flex-shrink-0 px-4 py-2 text-sm bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition" onclick="generateGen3Fields()">
-                        인원수 저장
-                    </button>
-                </div>
-            </div>
+    <label class="block font-bold text-gray-800 mb-2" for="gen3Count">❔ 3대(손자)는 총 몇 분인가요?</label>
+    
+    <div class="flex items-center space-x-3">
+        <input type="number" id="gen3Count" class="w-20 p-2 border border-gray-300 rounded-lg text-center focus:ring-2 focus:ring-blue-400 outline-none" min="1" placeholder="1" value="1">
+        <span class="text-gray-700">명</span>
+        <button class="flex-shrink-0 px-4 py-2 text-sm bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition shadow-md" onclick="generateGen3Fields()">
+            인원수 저장
+        </button>
+    </div>
+</div>
 
                         
             <!-- 문항 3: 3대 병역이행 사항 (동적 테이블) ------------------------------------------------------------------------------------------------------------------------------------>
