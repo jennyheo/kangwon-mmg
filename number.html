@@ -413,7 +413,7 @@
         function generateGen2Fields() {
             const countInput = document.getElementById('gen2Count');
             const count = parseInt(countInput.value);
-            document.getElementById('gen3CountLabel').textContent = `(2대 이행자 ${count}명의 남자 자녀수 총원)`;
+            document.getElementById('gen3CountLabel').textContent = `(2대 이행자(${count}명)의 남자 자녀수 총원)`;
             const tbody = document.getElementById('tbodyGen2');
             tbody.innerHTML = ''; 
 
@@ -428,7 +428,7 @@
                 const tr = document.createElement('tr');
                 tr.className = "hover:bg-gray-50 transition";
                 tr.innerHTML = `
-                    <td class="p-2 border-r border-gray-200">
+                    <td class="p-2 border-r border-gray-200">아들 ${i}
                         <select class="gen2-rel w-full p-1 border border-gray-300 rounded-md bg-white">
                             <option value="">관계 선택</option>
                             <option value="father">아버지</option>
