@@ -544,7 +544,7 @@
                 });
             } catch(e) {
                 if(e.message === "Incomplete Gen 2") {
-                    showAlert('2대 가족의 모든 관계와 병역사항을 선택해야 합니다.');
+                    showAlert('2대 가족의 모든 병역사항을 선택해야 합니다.');
                     return;
                 }
             }
@@ -554,9 +554,9 @@
             try {
                 gen3Services.forEach(select => {
                     // 관계 또는 복무 상태를 선택하지 않은 경우
-                    if (select.value === '' || select.closest('tr').querySelector('.gen3-rel').value === '') { 
-                        throw new Error("Incomplete Gen 3");
-                    }
+                    //if (select.value === '' || select.closest('tr').querySelector('.gen3-rel').value === '') { 
+                        //throw new Error("Incomplete Gen 3");
+                    //}
                     // 보충역 또는 현역 복무중(병사)는 명문가 제외 사유 (병역명문가는 복무 완료 기준)
                     if (select.value === 'supplement' || select.value === 'serving_soldier') isFail = true;
                     
@@ -565,7 +565,7 @@
                 });
             } catch(e) {
                 if(e.message === "Incomplete Gen 3") {
-                    showAlert('3대 가족의 모든 관계와 병역사항을 선택해야 합니다.');
+                    showAlert('3대 가족의 모든 병역사항을 선택해야 합니다.');
                     return;
                 }
             }
