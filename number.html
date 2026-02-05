@@ -156,13 +156,14 @@
             <div class="h-px bg-gray-200 my-6"></div>
             
             <!-- 3대 인원 입력 -->
-            <div class="p-4 bg-yellow-50 rounded-lg border">
+            <div class="p-4 bg-yellow-50 rounded-lg border relative">
                 <label class="block font-bold text-gray-800 mb-2" for="gen3Count">❔ 3대(손자)는 총 몇 분인가요?</label>
-
-
+                <div class="relative">
+                <button onclick="toggleTooltip('gen3Tooltip')" type="button" class="w-6 h-6 bg-gray-400 text-white text-xs font-bold rounded-full flex items-center justify-center hover:bg-gray-600 transition shadow-sm">💡 </button>
+<!--                
         <div class="relative flex items-center">
             <button onclick="toggleTooltip('gen3Tooltip')">💡</button>
-
+-->
             <div id="gen3Tooltip" class="hidden absolute bottom-full mb-2 left-1/2 -translate-x-1/2 w-64 p-3 bg-white border border-blue-200 text-gray-700 text-xs rounded-lg shadow-xl z-50 animate-fadeIn">
         <p class="font-bold text-blue-600 mb-1">💡 3대 범위 안내</p>
                 <ul class="list-disc list-inside space-y-1 text-gray-600">
