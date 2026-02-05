@@ -167,6 +167,9 @@
             <!-- 3대 인원 입력 -->
             <div class="p-4 bg-yellow-50 rounded-lg border">
                 <label class="block font-bold text-gray-800 mb-2" for="gen3Count">❔ 3대(손자)는 총 몇 분인가요?</label>
+                    <button onclick="toggleTooltip('gen3Tooltip')" class="w-5 h-5 bg-gray-400 text-white text-xs rounded-full flex items-center justify-center hover:bg-gray-600 transition">
+                    ?
+                    </button>
                 <label class="block font-bold text-gray-800 mb-2"><span class="text-gray-600 ml-1">(1대(할아버지)의 모든 손자)</span></label>
                 <div class="flex items-center space-x-3">
                     <input type="number" id="gen3Count" class="w-20 p-2 border border-gray-300 rounded-lg text-center" min="1" placeholder="1" value="1">
@@ -494,6 +497,38 @@
             }
         }
 
+
+
+
+
+/**
+ * 특정 ID를 가진 요소의 hidden 클래스를 토글하여 팝업을 열고 닫음
+ * @param {string} id - 토글할 요소의 ID
+ */
+function toggleTooltip(id) {
+    const tooltip = document.getElementById(id);
+    if (tooltip) {
+        tooltip.classList.toggle('hidden');
+    }
+}
+
+// (선택사항) 팝업 외의 영역을 클릭했을 때 팝업이 닫히게 하고 싶다면 아래 코드를 추가하세요.
+window.addEventListener('click', function(e) {
+    const tooltip = document.getElementById('gen3Tooltip');
+    const button = tooltip?.previousElementSibling?.querySelector('button');
+    
+    if (tooltip && !tooltip.classList.contains('hidden')) {
+        // 클릭된 곳이 팝업도 아니고 버튼도 아니라면 닫기
+        if (!tooltip.contains(e.target) && e.target !== button) {
+            tooltip.classList.add('hidden');
+        }
+    }
+});
+
+
+
+
+        
         /* --- Calculation - 최종 결과 계산 및 표시 --- */
         function calculateResult() {
             // 1. 입력 요소 가져오기
