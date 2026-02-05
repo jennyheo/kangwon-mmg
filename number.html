@@ -468,6 +468,21 @@
             }
         }
 
+
+/**
+ * 특정 ID를 가진 요소의 hidden 클래스를 토글하여 팝업을 열고 닫음
+ * @param {string} id - 토글할 요소의 ID
+ */
+function toggleTooltip(id) {
+    const tooltip = document.getElementById(id);
+    if (tooltip) {
+        tooltip.classList.toggle('hidden');
+    }
+}
+
+
+
+        
         /* --- Dynamic Rows - 3대 가족 정보 입력란 생성 --- */
         function generateGen3Fields() {
             const countInput = document.getElementById('gen3Count');
@@ -506,36 +521,6 @@
                 tbody.appendChild(tr);
             }
         }
-
-
-
-
-
-/**
- * 특정 ID를 가진 요소의 hidden 클래스를 토글하여 팝업을 열고 닫음
- * @param {string} id - 토글할 요소의 ID
- */
-function toggleTooltip(id) {
-    const tooltip = document.getElementById(id);
-    if (tooltip) {
-        tooltip.classList.toggle('hidden');
-    }
-}
-
-// (선택사항) 팝업 외의 영역을 클릭했을 때 팝업이 닫히게 하고 싶다면 아래 코드를 추가하세요.
-window.addEventListener('click', function(e) {
-    const tooltip = document.getElementById('gen3Tooltip');
-    const button = tooltip?.previousElementSibling?.querySelector('button');
-    
-    if (tooltip && !tooltip.classList.contains('hidden')) {
-        // 클릭된 곳이 팝업도 아니고 버튼도 아니라면 닫기
-        if (!tooltip.contains(e.target) && e.target !== button) {
-            tooltip.classList.add('hidden');
-        }
-    }
-});
-
-
 
 
         
