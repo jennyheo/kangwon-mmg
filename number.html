@@ -131,7 +131,7 @@
             
             <!-- 2대 인원 입력 -->
             <div class="p-4 bg-yellow-50 rounded-lg border">
-                <label class="block font-bold text-gray-800 mb-2" for="gen2Count">❓ 2대(아들)는 총 몇 분인가요?</label>
+                <label class="block font-bold text-gray-800 mb-2" for="gen2Count">❔ 2대(아들)는 총 몇 분인가요?</label>
                 <div class="flex items-center space-x-3">
                     <input type="number" id="gen2Count" class="w-20 p-2 border border-gray-300 rounded-lg text-center" min="1" placeholder="1" value="1">
                     <span class="text-gray-700">명</span>
@@ -169,7 +169,7 @@
             
             <!-- 3대 인원 입력 -->
             <div class="p-4 bg-yellow-50 rounded-lg border">
-                <label class="block font-bold text-gray-800 mb-2" for="gen3Count">❓ 3대(손자)는 총 몇 분인가요?</label>
+                <label class="block font-bold text-gray-800 mb-2" for="gen3Count">❔ 3대(손자)는 총 몇 분인가요?</label>
                 <label class="block font-bold text-gray-800 mb-2"><span id="gen3CountLabel" class="text-blue-600 ml-1"></span></label>
                 <div class="flex items-center space-x-3">
                     <input type="number" id="gen3Count" class="w-20 p-2 border border-gray-300 rounded-lg text-center" min="1" placeholder="1" value="1">
@@ -449,7 +449,7 @@
                         </select>
                         -->
                     </td>
-                    <td class="p-2">
+                    <td class="p-2 w-1/4">
                         <select class="gen2-service w-full p-1 border border-gray-300 rounded-md bg-white">
                             <option value="">복무 상태 선택</option>
                             <!-- 현역 복무 완료(만기 전역) -->
@@ -457,7 +457,7 @@
                             <!-- 현역 복무중(장교,준·부사관) -->
                             <option value="serving_officer_or_nco">현역 복무중(장교,준·부사관)</option>
                             <!-- 방위병·보충역 (제외 사유) -->
-                            <option value="defense">방위병·보충역</option>
+                            <option value="defense">방위병·공익(사회복무요원)</option>
                             <option value="unknown">모름 / 해당 없음</option>
                         </select>
                     </td>
@@ -503,7 +503,7 @@
                             <!-- 병사로 복무중인 경우 (복무 완료가 아니므로 제외 사유) -->
                             <option value="serving_soldier">현역 복무중(병사)</option>
                             <!-- 보충역 (제외 사유) -->
-                            <option value="supplement">보충역</option>
+                            <option value="supplement">사회복무요원</option>
                             <option value="unknown">모름 / 해당 없음</option>
                         </select>
                     </td>
