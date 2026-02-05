@@ -117,7 +117,7 @@
                 <span class="block font-bold text-gray-800 mb-2">1대(할아버지) : 1명</span>
             </div>
             
-            <!-- 문항 1: 1대 복무 여부 -->
+            <!-- 문항 1: 1대 복무 여부 -------------------------------------------------------------------------------------------------------------------------------------------------------------->
             <div class="space-y-3">
                 <label class="block font-bold text-gray-800">1️⃣ 1대 이행자께서 현역 등으로 복무를 마치셨습니까?</label>
                 <div class="flex flex-col space-y-1 text-sm">
@@ -144,7 +144,7 @@
 
 
             
-            <!-- 문항 2: 2대 병역이행 사항 (동적 테이블) -->
+            <!-- 문항 2: 2대 병역이행 사항 (동적 테이블) ----------------------------------------------------------------------------------------------------------------------------------------->
             <div class="space-y-3">
                 <label class="block font-bold text-gray-800">2️⃣ 2대 이행자의 병역이행 사항을 입력해주세요</label>
                 <div class="overflow-x-auto">
@@ -167,19 +167,24 @@
             <!-- 3대 인원 입력 -->
             <div class="p-4 bg-yellow-50 rounded-lg border">
                 <label class="block font-bold text-gray-800 mb-2" for="gen3Count">❔ 3대(손자)는 총 몇 분인가요?</label>
-                    <button onclick="toggleTooltip('gen3Tooltip')" class="w-5 h-5 bg-gray-400 text-white text-xs rounded-full flex items-center justify-center hover:bg-gray-600 transition">
-                    ?
-                    </button>
 
-    <div id="gen3Tooltip" class="hidden absolute z-10 top-10 left-4 right-4 p-3 bg-white border border-blue-300 shadow-xl rounded-lg text-sm text-gray-700 animate-fadeIn">
-        <p class="font-bold text-blue-600 mb-1">💡 3대 범위 안내</p>
-        <p>1대(할아버지)의 모든 손자를 의미합니다.<br>
-           (본인, 형제, 사촌형제 등 남성 전체)</p>
-        <button onclick="toggleTooltip('gen3Tooltip')" class="mt-2 text-xs text-red-500 underline">닫기</button>
+
+<div class="relative flex items-center">
+            <button onclick="toggleTooltip('gen3Tooltip')" 
+                    class="w-5 h-5 bg-blue-400 text-white text-xs rounded-full flex items-center justify-center hover:bg-blue-600 transition focus:outline-none">
+                ?
+            </button>
+
+            <div id="gen3Tooltip" 
+                 class="hidden absolute bottom-full mb-2 left-1/2 -translate-x-1/2 w-48 p-3 bg-gray-800 text-white text-xs rounded-lg shadow-xl z-50 animate-fadeIn">
+                <p class="font-bold mb-1 text-blue-300">💡 3대 범위 안내</p>
+                <p class="leading-relaxed">1대(할아버지)의 직계비속 중 모든 손자(본인, 형제, 사촌형제)를 포함합니다.</p>
+                <div class="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-gray-800"></div>
+            </div>
+        </div>
     </div>
-
-
                 
+               
                 <label class="block font-bold text-gray-800 mb-2"><span class="text-gray-600 ml-1">(1대(할아버지)의 모든 손자)</span></label>
                 <div class="flex items-center space-x-3">
                     <input type="number" id="gen3Count" class="w-20 p-2 border border-gray-300 rounded-lg text-center" min="1" placeholder="1" value="1">
@@ -191,7 +196,7 @@
             </div>
 
                         
-            <!-- 문항 3: 3대 병역이행 사항 (동적 테이블) -->
+            <!-- 문항 3: 3대 병역이행 사항 (동적 테이블) ------------------------------------------------------------------------------------------------------------------------------------>
             <div class="space-y-3">
                 <label class="block font-bold text-gray-800">3️⃣ 3대 이행자의 병역이행 사항을 입력해주세요</label>
                 <div class="overflow-x-auto">
@@ -211,7 +216,7 @@
 
             <div class="h-px bg-gray-200 my-6"></div>
             
-            <!-- 문항 4: 불명예 사유 -->
+            <!-- 문항 4: 불명예 사유 ------------------------------------------------------------------------------------------------------------------------------------>
             <div class="space-y-3">
                 <label class="block font-bold text-gray-800">4️⃣ 복무 중에 군복무 면탈, 불명예 제대 등의 사유가 있는 가족이 있습니까?</label>
                 <div class="flex flex-col space-y-1 text-sm">
