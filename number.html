@@ -132,6 +132,7 @@
             <!-- 2대 인원 입력 -->
             <div class="p-4 bg-yellow-50 rounded-lg border">
                 <label class="block font-bold text-gray-800 mb-2" for="gen2Count">❔ 2대(아들)는 총 몇 분인가요?</label>
+                <label class="block font-bold text-gray-800 mb-2"><span class="text-blue-600 ml-1">: 1대(할아버지)의 모든 아들 인원</span></label>
                 <div class="flex items-center space-x-3">
                     <input type="number" id="gen2Count" class="w-20 p-2 border border-gray-300 rounded-lg text-center" min="1" placeholder="1" value="1">
                     <span class="text-gray-700">명</span>
@@ -170,7 +171,7 @@
             <!-- 3대 인원 입력 -->
             <div class="p-4 bg-yellow-50 rounded-lg border">
                 <label class="block font-bold text-gray-800 mb-2" for="gen3Count">❔ 3대(손자)는 총 몇 분인가요?</label>
-                <label class="block font-bold text-gray-800 mb-2"><span id="gen3CountLabel" class="text-blue-600 ml-1"></span></label>
+                <label class="block font-bold text-gray-800 mb-2"><span class="text-blue-600 ml-1">: 1대(할아버지)의 모든 손자 인원</span></label>
                 <div class="flex items-center space-x-3">
                     <input type="number" id="gen3Count" class="w-20 p-2 border border-gray-300 rounded-lg text-center" min="1" placeholder="1" value="1">
                     <span class="text-gray-700">명</span>
@@ -424,7 +425,6 @@
         function generateGen2Fields() {
             const countInput = document.getElementById('gen2Count');
             const count = parseInt(countInput.value);
-            document.getElementById('gen3CountLabel').textContent = `(2대 이행자(${count}명)의 남자 자녀수 총원)`;
             const tbody = document.getElementById('tbodyGen2');
             tbody.innerHTML = ''; 
 
