@@ -430,13 +430,15 @@
                 const tr = document.createElement('tr');
                 tr.className = "hover:bg-gray-50 transition";
                 tr.innerHTML = `
-                    <td class="p-2 border-r border-gray-200">아들 ${i}
+                    <td class="p-2 border-r border-gray-200">아들 ${i+1}
+                    <!--
                         <select class="gen2-rel w-full p-1 border border-gray-300 rounded-md bg-white">
                             <option value="">관계 선택</option>
                             <option value="father">아버지</option>
                             <option value="uncle_big">백부</option>
                             <option value="uncle_small">숙부</option>
                         </select>
+                        -->
                     </td>
                     <td class="p-2">
                         <select class="gen2-service w-full p-1 border border-gray-300 rounded-md bg-white">
