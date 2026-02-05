@@ -169,13 +169,16 @@
                 <label class="block font-bold text-gray-800 mb-2" for="gen3Count">❔ 3대(손자)는 총 몇 분인가요?</label>
 
 
-        <div class="relative flex items-center">
+        <div class="relative inline-block">
             <button onclick="toggleTooltip('gen3Tooltip')">💡</button>
 
             <div id="gen3Tooltip" class="hidden absolute z-10 top-10 left-4 right-4 p-3 bg-white border border-blue-300 shadow-xl rounded-lg text-sm text-gray-700 animate-fadeIn">
         <p class="font-bold text-blue-600 mb-1">💡 3대 범위 안내</p>
-        <p>1대(할아버지)의 모든 손자를 의미합니다.<br>
-           (본인, 형제, 사촌형제 등 남성 전체)</p>
+                <ul class="list-disc list-inside space-y-1 text-gray-600">
+                    <li>1대 <b>할아버지</b>의 모든 친손자</li>
+                    <li>딸의 자녀(외손자)는 제외</li>
+                </ul>
+                
         <button onclick="toggleTooltip('gen3Tooltip')" class="mt-2 text-xs text-red-500 underline">닫기</button>
             </div>
         </div>
